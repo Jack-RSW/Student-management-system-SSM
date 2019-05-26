@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--使用Mybatis的配置文件的方式来配置数据库-->
+<mapper namespace="com.jnshu.mapper.IStudentMapper">
+    <select id="findById" parameterType="int" resultType="Student">
+       select * from student where s_id = #{id};
+</select>
+
+    <insert id="addStudent" parameterType="Student">
+      <selectKey keyProperty="s_id" resultType="int" order="AFTER">
+          SELECT LAST_INSERT_ID() AS id;
+      </selectKey>
+       insert into student value (#{s_id},#{s_name},#{s_qq},#{s_course},#{update_at},#{s_school},#{s_link},#{s_flag},#{s_brother},#{s_source},#{create_at});
+</insert>
+
+    <update id="updateStudent" parameterType="Student">
+      update student set s_name=#{s_name},s_qq=#{s_qq},s_course=#{s_course},update_at=#{update_at}, s_school=#{s_school},s_link=#{s_link},s_flag=#{s_flag},s_brother=#{s_brother},s_source=#{s_source},create_at=#{create_at} where s_id =#{s_id};
+</update>
+
+    <delete id="deleteById" parameterType="int">
+       delete from student where s_id = #{id};
+</delete>
+
+    <select id="findAll"  resultType="Student">
+        <!--select s.s_id,s.s_name,s.s_qq,c.c_course,s.update_at,s.s_school,s.s_link,s.s_flag,b.b_name,s.s_source,s.create_at from student as s,courses as c,brothers as b;-->
+        select * from student;
+</select>
+
+</mapper>

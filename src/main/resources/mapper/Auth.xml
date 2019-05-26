@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--使用Mybatis的配置文件的方式来配置数据库-->
+<mapper namespace="com.jnshu.mapper.IAuthMapper">
+    <!-- 通过返回的行数来判断是否成功 大于一为true -->
+    <select id="findAuth" parameterType="Auth" resultType="java.lang.Boolean">
+        select count(*) from auth where username=#{username} and password=#{password}
+    </select>
+</mapper>

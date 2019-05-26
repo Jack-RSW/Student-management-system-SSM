@@ -1,0 +1,10 @@
+{
+  "hobbies": [
+    "hiking",
+    "swimming"
+  ],
+  "sex": "male",
+  "name": "John",
+  "is_student": true,
+  "age": 22
+}
