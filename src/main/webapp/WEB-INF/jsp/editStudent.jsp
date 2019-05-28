@@ -9,14 +9,16 @@
 <head>
     <title>editStudent</title>
 </head>
+
 <body>
 
-<c:if test="${allErrors!=null}">
-    <c:forEach items="${allErrors}" var="error">
-        ${error.defaultMessage}
-        <br>
-    </c:forEach>
-</c:if>
+<div style="text-align:left;color: red;font-size: 25px">
+    <c:if test="${allErrors!=null}">
+        <c:forEach items="${allErrors}" var="error">
+            ${error.defaultMessage} <br>
+        </c:forEach>
+    </c:if>
+</div>
 
 <div style="width: 500px;margin: 0px auto;text-align: center">
     <div style="text-align: center;margin-top:40px">

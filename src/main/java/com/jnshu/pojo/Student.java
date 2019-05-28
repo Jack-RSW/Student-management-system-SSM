@@ -10,24 +10,24 @@ import javax.validation.constraints.Size;
 
 public class Student {
     private long s_id;
-    //校验名称在1到20个字符之间
+    //校验名称需大于1
     //message是提示效验出错显示的信息
     @Length(min = 1,message = "{student.name.length.error}")
     private String s_name;
-    @Range(min = 10010,message = "{student.qq.isNull}")
+    @Range(min = 10010,message = "{student.qq.length}")
     private long s_qq;
-    @Range(min = 1,message = "最小值是1")
+    @Range(min = 1,max = 2,message = "{student.course.notNull}")
     private long s_course;
     //非空效验
-    @NotNull(message = "不能为null")
+    @Range(min = 1,message = "{student.updatetime.notNull}")
     private long update_at;
     private String s_school;
     private String s_link;
     private String s_flag;
-    @Range(min = 1,message = "最小值是1")
+    @Range(min = 1,max = 2,message = "{student.brother.notNull}")
     private long s_brother;
     private String s_source;
-    @NotNull(message = "不能为null")
+    @Range(min = 1,message = "{student.creattime.notNull}")
     private long create_at;
 
     public long getS_id() {

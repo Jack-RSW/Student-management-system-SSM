@@ -9,14 +9,15 @@
 <head>
     <title>students</title>
 </head>
-<body>
 
-<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
+
+<body>
 
 <script type="text/javascript">
     /*将post method 改变为delete*/
     $(function(){
-    $(".delete").click(function () {
+    $(".delete").click(function(){
         var href =$(this).attr("href");
         $("#formdelete").attr("action",href).submit();
         return false;
@@ -76,8 +77,8 @@
                     <%--<jsp:setProperty name="dateValue1" property="time" value="${s.create_at}"/>--%>
                     <%--<fmt:formatDate value="${dateValue1}" pattern="yyyy-MM-dd hh:mm:ss"/>--%>
                 <%--</td>--%>
-                <td><a href="students/${s.s_id}">编辑</a></td>
-                <td><a class="delete" href="students/${s.s_id}">删除</a></td>
+                <td><a href="${pageContext.request.contextPath}/students/${s.s_id}">编辑</a></td>
+                <td><a class="delete" href="${pageContext.request.contextPath}/students/${s.s_id}">删除</a></td>
 
             </tr>
         </c:forEach>
@@ -91,12 +92,22 @@
     </div>
     <br>
     <div style="text-align: left">
-        <form method="post" action="addStudent">
+        <form method="post" action="${pageContext.request.contextPath}/addStudent">
             第一种方式跳转增加+后台验证：<input type="submit" value="增加学员">
         </form>
     </div>
 
     <br>
+    <br>
+
+    <div style="text-align: left ;color: red;font-size: 10px">
+        <c:if test="${allErrors!=null}">
+            <c:forEach items="${allErrors}" var="error">
+                ${error.defaultMessage}<br>
+            </c:forEach>
+        </c:if>
+    </div>
+
 
     <div style="align-content: center; margin-top: 40px;text-align: left">
         <form method="post" action="students" >

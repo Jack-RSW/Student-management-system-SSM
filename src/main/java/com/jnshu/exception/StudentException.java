@@ -1,5 +1,5 @@
 package com.jnshu.exception;
-
+//学生异常信息
 public class StudentException extends Exception {
 
     private String message;

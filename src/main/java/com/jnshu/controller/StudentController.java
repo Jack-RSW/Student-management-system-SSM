@@ -14,6 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,20 +35,24 @@ public class StudentController {
 
     //restful风格的增加，并对String格式的时间转为long类型
     @RequestMapping(value = "/students",method = RequestMethod.POST)
-    public ModelAndView addStudent(Student s,HttpServletRequest request){
-/*        String update_at = request.getParameter("update_at");
-        TimeConvert timeConvert = new TimeConvert();
-        Long u = timeConvert.convert(update_at);
-        s.setUpdate_at(u);
+    public String addStudent(Model model, HttpServletRequest request, Integer id, @Validated Student s, BindingResult bindingResult){
+        List<ObjectError> allErrors = null;
+        if (bindingResult.hasErrors()) {
 
-        String create_at = request.getParameter("create_at");
-        Long c = timeConvert.convert(create_at);
-        s.setCreate_at(c);*/
+            allErrors = bindingResult.getAllErrors();
+            for (ObjectError objectError : allErrors) {
+                System.out.println(objectError.getDefaultMessage());
+            }
+            model.addAttribute("allErrors", allErrors);
+            model.addAttribute("stu",s);
+            System.out.println("--------进入allErrors----------");
+            return "/listStudents";
+
+        }
 
         System.out.println("增加："+s.getS_name());
         iStudentService.addStudent(s);
-        ModelAndView mav = new ModelAndView("redirect:/students");
-        return mav;
+        return "redirect:/students";
     }
 
     //restful风格的删除
@@ -63,6 +71,7 @@ public class StudentController {
         page.setStart(start=start<0?0:start);
         PageHelper.offsetPage(page.getStart(),5);
         PageHelper.orderBy("s_id DESC");
+
         List<Student> stus = iStudentService.findAll();
         int total = (int) new PageInfo(stus).getTotal();
         page.caculateLast(total);

@@ -324,12 +324,12 @@
       <groupId>taglibs</groupId>
       <artifactId>standard</artifactId>
       <version>1.1.2</version>
-    </dependency>
+    </dependency>-->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
       <version>1.2</version>
-    </dependency>-->
+    </dependency>
     <!--taglib标签包-->
     <dependency>
       <groupId>atg.taglib.json</groupId>
@@ -433,6 +433,17 @@
         <artifactId>jetty-maven-plugin</artifactId>
         <version>9.4.9.v20180320</version>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <update>true</update>
+          <uriEncoding>UTF-8</uriEncoding>
+        </configuration>
+      </plugin>
     </plugins>
+
   </build>
 </project>

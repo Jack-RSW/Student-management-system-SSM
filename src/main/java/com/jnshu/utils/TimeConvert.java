@@ -19,7 +19,7 @@ public class TimeConvert implements Converter<String, Long> {
 
         //设置时间模式
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Long l;
+        Long l=null;
 
         //将String类型时间转换为long
         try {
@@ -28,6 +28,8 @@ public class TimeConvert implements Converter<String, Long> {
                 return l;
             }else {
                 logger.error("当前时间为null");
+                l=(long)0;
+                return l;
             }
         } catch (ParseException e) {
             e.printStackTrace();

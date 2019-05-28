@@ -1,5 +1,8 @@
 package com.jnshu.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
@@ -12,6 +15,7 @@ import java.util.Calendar;
 public class DateTag extends TagSupport {
 
     private String value;
+    private static Logger logger = LoggerFactory.getLogger(DateTag.class);
 
     @Override
     public int doStartTag() throws JspException {
@@ -25,10 +29,12 @@ public class DateTag extends TagSupport {
             pageContext.getOut().write(s);
         } catch (Exception e) {
             e.printStackTrace();
+            logger.error("转换失败");
         }
         return super.doStartTag();
     }
 
+    //传入String格式的时间戳
     public void setValue(String value) {
         this.value = value;
     }
