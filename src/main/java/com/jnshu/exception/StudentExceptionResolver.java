@@ -29,6 +29,7 @@ public class StudentExceptionResolver implements HandlerExceptionResolver, Order
         }else if (e instanceof HttpMessageNotReadableException){
             studentException = new StudentException("参数异常");
         }else {
+            e.printStackTrace();
             studentException = new StudentException("未知错误");
         }
         ModelAndView mv = new ModelAndView();
@@ -58,6 +59,6 @@ public class StudentExceptionResolver implements HandlerExceptionResolver, Order
 
     @Override
     public int getOrder() {
-        return 2;
+        return 3;
     }
 }

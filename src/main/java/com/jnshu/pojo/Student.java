@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -14,7 +15,8 @@ public class Student {
     //message是提示效验出错显示的信息
     @Length(min = 1,message = "{student.name.length.error}")
     private String s_name;
-    @Range(min = 10010,message = "{student.qq.length}")
+//    @Range(min = 10010,message = "{student.qq.length}")
+    @DecimalMin(value = "10010",message = "{student.qq.length}")
     private long s_qq;
     @Range(min = 1,max = 2,message = "{student.course.notNull}")
     private long s_course;
