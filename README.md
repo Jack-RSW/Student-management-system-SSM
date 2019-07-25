@@ -16,23 +16,25 @@
 ## 技术栈
 
 - 项目环境采用`IDEA` + `MAVEN` + `Tomcat` + `MySQL`，数据库连接池采用Druid
-- 1. restful风格的crud操作
 
-- 2. 后台效验
+## 具体的实现功能
+- restful风格的crud操作
 
-- 3. 登陆拦截
+- 后台效验
 
-- 4. 全局异常处理
+- 登陆拦截
 
-- 5. @Response和@Taglib json数据测试
+- 全局异常处理
 
-- 6. string和long类型转换
+- @Response和@Taglib json数据测试
 
-- 7. log4j2新的日志配置
+- string和long类型转换
 
-- 8. 使用pagehelper进行分页
+- log4j2新的日志配置
 
-- 9. 引入事务管理
+- 使用pagehelper进行分页
+
+- 引入事务管理
 
 ## 项目功能
 
