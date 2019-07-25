@@ -16,11 +16,29 @@
 ## 技术栈
 
 - 项目环境采用`IDEA` + `MAVEN` + `Tomcat` + `MySQL`，数据库连接池采用Druid
+- 1. restful风格的crud操作
+
+- 2. 后台效验
+
+- 3. 登陆拦截
+
+- 4. 全局异常处理
+
+- 5. @Response和@Taglib json数据测试
+
+- 6. string和long类型转换
+
+- 7. log4j2新的日志配置
+
+- 8. 使用pagehelper进行分页
+
+- 9. 引入事务管理
 
 ## 项目功能
 
 - 前台：学员功能注册和效验
 - 后台：学员功能的CRUD
+
 
 ## 项目结构
 
