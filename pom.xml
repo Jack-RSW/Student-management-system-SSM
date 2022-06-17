@@ -223,7 +223,7 @@
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>
-      <version>1.2.36</version>
+      <version>1.2.83</version>
     </dependency>
     <!--加载json 所需的jar-->
     <!--<dependency>
